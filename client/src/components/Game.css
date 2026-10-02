@@ -1,0 +1,145 @@
+.game-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.game-layout {
+  display: grid;
+  grid-template-columns: 250px 1fr 350px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1800px;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.game-sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.game-main {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.canvas-section {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Word Selection */
+.word-selection-container,
+.waiting-drawer-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.word-selection-card,
+.waiting-drawer-card {
+  text-align: center;
+}
+
+.word-selection-card h2,
+.waiting-drawer-card h2 {
+  font-size: 28px;
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+.word-choices {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.word-choice-btn {
+  background: var(--surface);
+  border: 3px solid var(--border-color);
+  padding: 20px;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+.word-choice-btn:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.3);
+}
+
+.word-hint {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.waiting-spinner {
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.waiting-drawer-card p {
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .game-layout {
+    grid-template-columns: 200px 1fr 300px;
+  }
+}
+
+@media (max-width: 992px) {
+  .game-layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .game-sidebar.left {
+    order: 1;
+    max-height: 150px;
+  }
+
+  .game-main {
+    order: 2;
+  }
+
+  .game-sidebar.right {
+    order: 3;
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  .game-container {
+    padding: 10px;
+  }
+
+  .game-layout {
+    gap: 10px;
+  }
+
+  .word-selection-card h2 {
+    font-size: 22px;
+  }
+
+  .word-choice-btn {
+    padding: 16px;
+    font-size: 20px;
+  }
+}
